@@ -1,0 +1,153 @@
+/* --- ПЕРЕМЕННЫЕ ЦВЕТОВ --- */
+:root {
+    /* Светлая тема */
+    --bg-color: #f4f7f6;
+    --card-bg: #ffffff;
+    --text-main: #2c3e50;
+    --text-muted: #7f8c8d;
+    --header-bg: #2c3e50;
+    --header-text: #ffffff;
+    --table-header-bg: #ecf0f1;
+    --table-border: #ddd;
+    
+    /* Единый стиль кнопок */
+    --btn-main: #3498db;       
+    --btn-main-hover: #2980b9; 
+    --btn-danger: #e74c3c;     
+    --btn-danger-hover: #c0392b;
+}
+
+[data-theme="dark"] {
+    /* Тёмная тема */
+    --bg-color: #1a1a1a;
+    --card-bg: #2d2d2d;
+    --text-main: #e0e0e0;
+    --text-muted: #a0a0a0;
+    --header-bg: #121212;
+    --header-text: #ffffff;
+    --table-header-bg: #3a3a3a;
+    --table-border: #444;
+    
+    /* Единый стиль кнопок (приглушенный) */
+    --btn-main: #2c6f9e;       
+    --btn-main-hover: #3a8bc4; 
+    --btn-danger: #a93226;     
+    --btn-danger-hover: #c94032;
+}
+
+/* --- ОБЩИЕ СТИЛИ --- */
+body { 
+    font-family: Arial, sans-serif; 
+    background-color: var(--bg-color); 
+    color: var(--text-main);
+    margin: 0; 
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.header { 
+    background-color: var(--header-bg); 
+    color: var(--header-text); 
+    padding: 15px 30px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+}
+.header h1 { margin: 0; font-size: 20px; }
+.header a { color: var(--header-text); text-decoration: none; margin-left: 15px; }
+.header a:hover { text-decoration: underline; }
+
+.container { 
+    max-width: 1200px; 
+    margin: 30px auto; 
+    padding: 0 20px; 
+}
+
+.welcome, .menu-card, .card, .login-box { 
+    background-color: var(--card-bg); 
+    color: var(--text-main);
+    padding: 20px; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+    margin-bottom: 20px;
+    transition: background-color 0.3s;
+}
+
+.menu-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 20px; 
+}
+.menu-card { text-align: center; transition: transform 0.2s, background-color 0.3s; }
+.menu-card:hover { transform: translateY(-5px); }
+.menu-card h3 { margin-top: 0; color: var(--text-main); }
+.menu-card p { color: var(--text-muted); font-size: 14px; }
+
+/* --- КНОПКИ --- */
+.btn { 
+    display: inline-block; 
+    padding: 10px 20px; 
+    color: white; 
+    text-decoration: none; 
+    border-radius: 4px; 
+    margin-top: 10px; 
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s;
+}
+
+.btn-main { background-color: var(--btn-main); }
+.btn-main:hover { background-color: var(--btn-main-hover); }
+
+.btn-danger { background-color: var(--btn-danger); }
+.btn-danger:hover { background-color: var(--btn-danger-hover); }
+
+.btn-top { display: inline-block; padding: 8px 15px; color: white; text-decoration: none; border-radius: 4px; font-size: 14px; background-color: var(--btn-main); }
+.btn-top:hover { background-color: var(--btn-main-hover); }
+
+.btn-del { background-color: var(--btn-danger); color: white; padding: 5px 10px; text-decoration: none; border-radius: 3px; font-size: 12px; display: inline-block; }
+.btn-del:hover { background-color: var(--btn-danger-hover); }
+
+/* --- ТАБЛИЦЫ --- */
+table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 14px; }
+th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--table-border); }
+th { background-color: var(--table-header-bg); color: var(--text-main); }
+
+/* --- ФОРМЫ --- */
+input[type="text"], input[type="password"], select, textarea { 
+    width: 100%; 
+    padding: 10px; 
+    margin-bottom: 20px; 
+    border: 1px solid var(--table-border); 
+    border-radius: 4px; 
+    box-sizing: border-box;
+    background-color: var(--card-bg);
+    color: var(--text-main);
+}
+label { display: block; margin-bottom: 5px; font-weight: bold; }
+
+/* --- СПЕЦИАЛЬНЫЕ ЭЛЕМЕНТЫ --- */
+.status-new { color: #3498db; font-weight: bold; }
+.status-progress { color: #f39c12; font-weight: bold; }
+.status-done { color: #2ecc71; font-weight: bold; }
+
+.role-admin { color: red; font-weight: bold; }
+.role-executor { color: #f39c12; font-weight: bold; }
+.role-applicant { color: #3498db; }
+
+.tabs { margin-bottom: 20px; border-bottom: 2px solid var(--table-border); }
+.tab { display: inline-block; padding: 10px 20px; text-decoration: none; color: var(--text-muted); font-weight: bold; }
+.tab.active { color: var(--text-main); border-bottom: 3px solid var(--btn-main); margin-bottom: -2px; }
+
+/* Кнопка переключения темы */
+.theme-toggle {
+    background: none;
+    border: 1px solid var(--header-text);
+    color: var(--header-text);
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 15px;
+    font-size: 14px;
+}
+.theme-toggle:hover { background: rgba(255,255,255,0.1); }
